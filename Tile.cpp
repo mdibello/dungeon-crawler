@@ -1,3 +1,5 @@
+#include "Tile.hpp"
+
 void Tile::setSprite(std::string spriteFilename, int tileNumber) {
 }
 

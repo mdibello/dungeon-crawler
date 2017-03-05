@@ -1,7 +1,7 @@
 CC=g++
 CCFLAGS=--std=c++11 -g
 SFMLFLAGS=-lsfml-system -lsfml-graphics -lsfml-window -lsfml-audio
-OBJECTS=main.o
+OBJECTS=main.o tile.o world.o
 
 all: main
 
@@ -10,6 +10,12 @@ main: $(OBJECTS)
 
 main.o: main.cpp main.hpp
 	$(CC) $(CFLAGS) -c main.cpp -o main.o
+
+tile.o: Tile.cpp Tile.hpp main.hpp
+	$(CC) $(CFLAGS) -c Tile.cpp -o tile.o
+
+world.o: World.cpp World.hpp main.hpp
+	$(CC) $(CFLAGS) -c World.cpp -o world.o
 
 clean:
 	rm *o main

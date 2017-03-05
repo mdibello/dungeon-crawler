@@ -11,6 +11,7 @@ public:
 private:
     sf::Sprite sprite;
     sf::Texture texture;
+    int position; //index in vector
 };
 
 #endif
