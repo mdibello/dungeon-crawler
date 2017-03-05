@@ -1,13 +1,17 @@
 #include "main.hpp"
+#include "Tile.hpp"
 
 int main() {
 
     GameProperties gameProperties;
-    gameProperties.screenWidth = 900;
-    gameProperties.screenHeight = 900;
+    gameProperties.screenWidth = 800;
+    gameProperties.screenHeight = 800;
+    gameProperties.tileSize = 32;
 
     sf::Window window(sf::VideoMode(gameProperties.screenWidth, gameProperties.screenHeight),
                         "Dungeon Crawler");
+
+    
 
     while (window.isOpen()) {
         sf::Event event;
