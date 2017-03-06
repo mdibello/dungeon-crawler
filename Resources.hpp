@@ -6,8 +6,8 @@
 
 class Resources {
 public:
+    sf::Image extractTile(std::string tilesetName, int tileNumber, int tileIndex);
 private:
-    //std::map<std::string, pair<sf::Image, std::map<int, sf::Image>>> resources;
     std::map<std::string, sf::Image> tilesets;
     std::map<std::string, std::map<int, sf::Image>> tiles;
 };
