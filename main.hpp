@@ -8,7 +8,10 @@
 struct GameProperties {
     int screenWidth;
     int screenHeight;
+    int gridWidth;
+    int gridHeight;
     int tileSize;
+    int numTiles;
 };
 
 struct Coord {
@@ -18,5 +21,6 @@ struct Coord {
 
 int coordToIndex(Coord c, int gridWidth);
 Coord indexToCoord(int i, int gridWidth);
+Coord indexToPixel(int i, GameProperties gameProperties);
 
 #endif

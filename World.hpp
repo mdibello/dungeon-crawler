@@ -5,17 +5,20 @@
 #include "main.hpp"
 #include <vector>
 
-class World {
+class World : public sf::Drawable {
 public:
+    void setGameProperties(GameProperties properties);
+    GameProperties getGameProperties();
     void setGridWidth(int w);
     int getGridWidth();
-    int at(int index);
-    int at(Coord c);
+    Tile* at(int index);
+    Tile* at(Coord c);
     //void set(int index, int value);
-    void push_back(int value);
+    void push_back(Tile* t);
+    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 private:
-    std::vector<int> grid;
-    int gridWidth;
+    std::vector<Tile*> grid;
+    GameProperties gameProperties;
 };
 
 #endif

@@ -8,23 +8,28 @@ int main() {
     gameProperties.screenWidth = 800;
     gameProperties.screenHeight = 800;
     gameProperties.tileSize = 32;
+    gameProperties.numTiles = (gameProperties.screenWidth *
+        gameProperties.screenHeight) / (gameProperties.tileSize ^ 2);
+    gameProperties.gridWidth = gameProperties.screenWidth /
+        gameProperties.tileSize;
+    gameProperties.gridHeight = gameProperties.screenHeight /
+        gameProperties.tileSize;
 
-    sf::Window window(sf::VideoMode(gameProperties.screenWidth,
+    sf::RenderWindow window(sf::VideoMode(gameProperties.screenWidth,
       gameProperties.screenHeight), "Dungeon Crawler");
 
     World world;
-    world.setGridWidth(gameProperties.screenWidth / gameProperties.tileSize);
+    world.setGameProperties(gameProperties);
 
-    int totalTiles = (gameProperties.screenWidth * gameProperties.screenHeight) /
-      (gameProperties.tileSize ^ 2);
-
-    for (int i = 0; i < totalTiles; i++) {
-        world.push_back(i);
+    for (int i = 0; i < gameProperties.numTiles; i++) {
+        Tile* t = new Tile;
+        t->setGameProperties(gameProperties);
+        t->initializeSprite("mountain_landscape", 100, i);
+        world.push_back(t);
     }
 
-    Coord c = {10, 10};
-    std::cout << "world[100] = " << world.at(100) << std::endl;
-    std::cout << "world[(10, 10)] = " << world.at(c) << std::endl;
+    window.draw(world);
+    window.display();
 
     while (window.isOpen()) {
         sf::Event event;
@@ -44,5 +49,11 @@ int coordToIndex(Coord c, int gridWidth) {
 
 Coord indexToCoord(int i, int gridWidth) {
     Coord c = {(i % gridWidth), (gridWidth - 1 - (i / gridWidth))};
+	return c;
+}
+
+Coord indexToPixel(int i, GameProperties p) {
+	Coord c = {(i % p.gridWidth) * (p.screenWidth / p.gridWidth),
+        (i / p.gridWidth) * (p.screenHeight / p.gridHeight)};
 	return c;
 }

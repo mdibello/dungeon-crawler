@@ -1,25 +1,35 @@
 #include "World.hpp"
 
+void World::setGameProperties(GameProperties properties) {
+    World::gameProperties = properties;
+}
+
 void World::setGridWidth(int w) {
-    World::gridWidth = w;
+    World::gameProperties.gridWidth = w;
 }
 
 int World::getGridWidth() {
-    return World::gridWidth;
+    return World::gameProperties.gridWidth;
 }
 
-int World::at(int index) {
+Tile* World::at(int index) {
     return World::grid[index];
 }
 
-int World::at(Coord c) {
-    return World::grid[coordToIndex(c, World::gridWidth)];
+Tile* World::at(Coord c) {
+    return World::grid[coordToIndex(c, World::gameProperties.gridWidth)];
 }
 
 //void World::set(int index, int value) {
 //    grid[index] = value;
 //}
 
-void World::push_back(int value) {
-    World::grid.push_back(value);
+void World::push_back(Tile* t) {
+    World::grid.push_back(t);
+}
+
+void World::draw(sf::RenderTarget& target, sf::RenderStates states) const {
+    for (std::vector<Tile*>::const_iterator it = World::grid.begin(); it != World::grid.end(); it++) {
+        target.draw(**it);
+    }
 }
