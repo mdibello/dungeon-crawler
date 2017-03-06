@@ -8,8 +8,8 @@ int main() {
     gameProperties.screenWidth = 800;
     gameProperties.screenHeight = 800;
     gameProperties.tileSize = 32;
-    gameProperties.numTiles = (gameProperties.screenWidth *
-        gameProperties.screenHeight) / (gameProperties.tileSize ^ 2);
+    gameProperties.numTiles = (gameProperties.screenWidth / gameProperties.tileSize) *
+        (gameProperties.screenHeight / gameProperties.tileSize);
     gameProperties.gridWidth = gameProperties.screenWidth /
         gameProperties.tileSize;
     gameProperties.gridHeight = gameProperties.screenHeight /

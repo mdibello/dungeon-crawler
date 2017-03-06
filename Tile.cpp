@@ -1,7 +1,6 @@
 #include "Tile.hpp"
 
 void Tile::initializeSprite(std::string tilesetName, int tileNumber, int tileIndex) {
-    //load tileset
     sf::Image tileset;
     if (!tileset.loadFromFile("assets/tilesets/" + tilesetName + ".png")) {
         std::cout << "ERROR: Could not load tileset " << tilesetName << "." << std::endl;
@@ -10,7 +9,7 @@ void Tile::initializeSprite(std::string tilesetName, int tileNumber, int tileInd
     Coord topLeftPoint = indexToPixel(tileNumber, Tile::gameProperties);
     Tile::texture.loadFromImage(tileset, sf::IntRect(topLeftPoint.x,topLeftPoint.y,32,32));
     Tile::sprite.setTexture(Tile::texture);
-    Coord pos = indexToCoord(tileIndex, Tile::gameProperties.gridWidth);
+    Coord pos = indexToPixel(tileIndex, Tile::gameProperties);
     Tile::sprite.setPosition(sf::Vector2f(pos.x, pos.y));
     Tile::position = tileIndex;
 }
