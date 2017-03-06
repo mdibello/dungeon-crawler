@@ -21,10 +21,13 @@ int main() {
     World world;
     world.setGameProperties(gameProperties);
 
+    Resources resources;
+    resources.setGameProperties(gameProperties);
+
     for (int i = 0; i < gameProperties.numTiles; i++) {
         Tile* t = new Tile;
         t->setGameProperties(gameProperties);
-        t->initializeSprite("mountain_landscape", 100, i);
+        t->initializeSprite("mountain_landscape", 10, i, resources);
         world.push_back(t);
     }
 
