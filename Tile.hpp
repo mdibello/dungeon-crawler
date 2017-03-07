@@ -9,7 +9,7 @@
 class Tile : public sf::Drawable {
 public:
     void setGameProperties(GameProperties properties);
-    void initializeSprite(std::string tilesetName, int tileNumber, int tileIndex, Resources r);
+    void initializeSprite(std::string tilesetName, int tileNumber, int tileIndex, Resources& r);
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 private:
     sf::Sprite sprite;

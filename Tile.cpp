@@ -1,6 +1,6 @@
 #include "Tile.hpp"
 
-void Tile::initializeSprite(std::string tilesetName, int tileNumber, int tileIndex, Resources r) {
+void Tile::initializeSprite(std::string tilesetName, int tileNumber, int tileIndex, Resources& r) {
     Tile::texture = r.extractTile(tilesetName, tileNumber);
     Tile::sprite.setTexture(Tile::texture);
     Coord pos = indexToPixel(tileIndex, Tile::gameProperties);

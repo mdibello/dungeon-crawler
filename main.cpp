@@ -23,11 +23,12 @@ int main() {
 
     Resources resources;
     resources.setGameProperties(gameProperties);
+    std::string tilesetName = "mountain_landscape";
 
     for (int i = 0; i < gameProperties.numTiles; i++) {
         Tile* t = new Tile;
         t->setGameProperties(gameProperties);
-        t->initializeSprite("mountain_landscape", 10, i, resources);
+        t->initializeSprite(tilesetName, 10, i, resources);
         world.push_back(t);
     }
 
