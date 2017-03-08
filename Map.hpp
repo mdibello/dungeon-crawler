@@ -1,11 +1,11 @@
-#ifndef WORLD_HPP
-#define WORLD_HPP
+#ifndef MAP_HPP
+#define MAP_HPP
 
 #include "Tile.hpp"
 #include "main.hpp"
 #include <vector>
 
-class World : public sf::Drawable {
+class Map : public sf::Drawable {
 public:
     void setGameProperties(GameProperties properties);
     GameProperties getGameProperties();

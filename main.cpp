@@ -1,6 +1,6 @@
 #include "main.hpp"
 #include "Tile.hpp"
-#include "World.hpp"
+#include "Map.hpp"
 
 int main() {
 
@@ -18,8 +18,8 @@ int main() {
     sf::RenderWindow window(sf::VideoMode(gameProperties.screenWidth,
       gameProperties.screenHeight), "Dungeon Crawler");
 
-    World world;
-    world.setGameProperties(gameProperties);
+    Map map;
+    map.setGameProperties(gameProperties);
 
     Resources resources;
     resources.setGameProperties(gameProperties);
@@ -29,10 +29,10 @@ int main() {
         Tile* t = new Tile;
         t->setGameProperties(gameProperties);
         t->initializeSprite(tilesetName, 10, i, resources);
-        world.push_back(t);
+        map.push_back(t);
     }
 
-    window.draw(world);
+    window.draw(map);
     window.display();
 
     while (window.isOpen()) {
