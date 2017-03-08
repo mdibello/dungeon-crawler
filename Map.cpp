@@ -24,6 +24,22 @@ Tile* Map::at(Coord c) {
 //    grid[index] = value;
 //}
 
+void Map::importLayer(std::string mapName, std::string fileName, std::string tilesetName, Resources& r) {
+    std::ifstream layerFile("assets/maps/" + mapName + "/" + fileName + ".csv");
+    for (int i = 0; i < gameProperties.gridHeight; i++) {
+        for (int j = 0; j < gameProperties.gridWidth; j++) {
+            int tileNumber;
+            layerFile >> tileNumber;
+            int tileIndex = (i * gameProperties.gridWidth) + j;
+            Tile* t = new Tile;
+            t->setGameProperties(Map::gameProperties);
+            t->initializeSprite(tilesetName, tileNumber, tileIndex, r);
+            Map::grid.push_back(t);
+        }
+    }
+    layerFile.close();
+}
+
 void Map::push_back(Tile* t) {
     Map::grid.push_back(t);
 }

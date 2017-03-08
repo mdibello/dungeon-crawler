@@ -24,13 +24,17 @@ int main() {
     Resources resources;
     resources.setGameProperties(gameProperties);
     std::string tilesetName = "mountain_landscape";
+    std::string mapName = "test";
+    std::string fileName = "test_base";
 
-    for (int i = 0; i < gameProperties.numTiles; i++) {
-        Tile* t = new Tile;
-        t->setGameProperties(gameProperties);
-        t->initializeSprite(tilesetName, 10, i, resources);
-        map.push_back(t);
-    }
+    map.importLayer(mapName, fileName, tilesetName, resources);
+
+    //for (int i = 0; i < gameProperties.numTiles; i++) {
+    //    Tile* t = new Tile;
+    //    t->setGameProperties(gameProperties);
+    //    t->initializeSprite(tilesetName, 10, i, resources);
+    //    map.push_back(t);
+    //}
 
     window.draw(map);
     window.display();

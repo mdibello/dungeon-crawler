@@ -4,6 +4,8 @@
 #include "Tile.hpp"
 #include "main.hpp"
 #include <vector>
+#include <iostream>
+#include <fstream>
 
 class Map : public sf::Drawable {
 public:
@@ -13,6 +15,7 @@ public:
     int getGridWidth();
     Tile* at(int index);
     Tile* at(Coord c);
+    void importLayer(std::string mapName, std::string fileName, std::string tilesetName, Resources& r);
     //void set(int index, int value);
     void push_back(Tile* t);
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
