@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="25" height="25" tilewidth="32" tileheight="32" nextobjectid="1">
+<map version="1.0" tiledversion="1.1.5" orientation="orthogonal" renderorder="right-down" width="25" height="25" tilewidth="32" tileheight="32" infinite="0" nextobjectid="1">
  <tileset firstgid="1" name="tmw_desert_spacing.png" tilewidth="32" tileheight="32" tilecount="256" columns="16">
-  <image source="mountain_landscape.png" width="512" height="512"/>
+  <image source="../../tilesets/mountain_landscape.png" width="512" height="512"/>
  </tileset>
  <layer name="base" width="25" height="25">
   <data encoding="csv">

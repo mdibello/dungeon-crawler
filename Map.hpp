@@ -6,6 +6,7 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
+#include <sstream>
 
 class Map : public sf::Drawable {
 public:
@@ -16,6 +17,7 @@ public:
     Tile* at(int index);
     Tile* at(Coord c);
     void importLayer(std::string mapName, std::string fileName, std::string tilesetName, Resources& r);
+    std::vector<int> parseLayerFile(std::string mapName, std::string tilesetName);
     //void set(int index, int value);
     void push_back(Tile* t);
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;

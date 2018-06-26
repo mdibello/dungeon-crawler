@@ -21,7 +21,7 @@ sf::Texture Resources::extractTile(std::string tilesetName, int tileNumber) {
     std::map<int, sf::Texture>::iterator it2 = Resources::tiles.at(tilesetName).find(tileNumber);
     if (it2 == Resources::tiles.at(tilesetName).end()) { // tile is not stored in Resources
         Coord topLeftPoint = indexToPixel(tileNumber, Resources::gameProperties);
-        tile.loadFromImage(tileset, sf::IntRect(topLeftPoint.x,topLeftPoint.y,
+        tile.loadFromImage(tileset, sf::IntRect(topLeftPoint.x, topLeftPoint.y,
             Resources::gameProperties.tileSize, Resources::gameProperties.tileSize));
         Resources::tiles.at(tilesetName).insert(std::pair<int, sf::Texture>(tileNumber, tile));
     }
